@@ -45,6 +45,7 @@ async fn main() -> std::io::Result<()> {
             .route("/api/bookings", web::get().to(handlers::bookings::get_bookings))
             .route("/api/bookings/{id}/status", web::patch().to(handlers::bookings::update_booking_status))
             .route("/api/contact", web::post().to(handlers::contact::send_message))
+            .route("/api/contact", web::get().to(handlers::contact::get_messages))
     })
     .bind(&bind_addr)?
     .run()
